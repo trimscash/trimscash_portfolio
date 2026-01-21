@@ -1,0 +1,35 @@
+---
+const { works, placeholderImage } = Astro.props;
+---
+
+<div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5">
+  {works.map((work) => (
+    <a
+      class="relative grid gap-3 overflow-hidden rounded-2xl border border-[#1c1c1c] bg-[#0f0f0f] p-3 transition hover:-translate-y-1.5 hover:border-[#2a2a2a]"
+      href={work.link}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span
+        class="absolute bottom-2.5 right-2.5 grid h-[18px] w-[18px] place-items-center rounded-md border border-[#1f1f1f] bg-[#070707]/70"
+        aria-hidden="true"
+      >
+        <img class="h-3 w-3" src="/external.svg" alt="" />
+      </span>
+      <img
+        class="aspect-[4/3] w-full rounded-xl bg-[#111] object-cover"
+        src={work.image || placeholderImage}
+        alt={work.title}
+        onerror={`this.onerror=null;this.src='${placeholderImage}';`}
+      />
+      <h3 class="m-0 text-[16px]">{work.title}</h3>
+      <ul class="m-0 flex min-h-[22px] flex-wrap gap-1.5 p-0" aria-hidden={!work.tags?.length}>
+        {work.tags?.map((tag) => (
+          <li class="list-none rounded-full border border-[#202020] bg-[#121212] px-2 py-1 text-[11px] text-[#a7a7a7]">
+            {tag}
+          </li>
+        ))}
+      </ul>
+    </a>
+  ))}
+</div>
