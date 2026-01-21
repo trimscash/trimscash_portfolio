@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:lang(en) {
-  font-family: "Cascadia Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
+body {
+  font-family: "Cascadia Mono", "Noto Sans JP", "Yu Gothic", sans-serif;
 }
