@@ -1,47 +1,97 @@
 [
-    {
-    "title": "element-quiz",
-    "link": "https://github.com/trimscash/element-quiz"
+  {
+    "title": "BookController",
+    "image": "/contents/works/BookController.png",
+    "link": "https://github.com/trimscash/BookController",
+    "tags": [
+      "ESP32",
+      "BLE",
+      "MAUI"
+    ]
+  },
+  {
+    "title": "autoBell",
+    "image": "/contents/works/autobell.png",
+    "link": "https://github.com/trimscash/autoBell",
+    "tags": [
+      "ESP32",
+      "PlatformIO"
+    ]
   },
   {
     "title": "element-quiz",
     "image": "/contents/works/element-quiz.png",
-    "link": "https://github.com/trimscash/element-quiz"
+    "link": "https://github.com/trimscash/element-quiz",
+    "tags": [
+      "TypeScript",
+      "React"
+    ]
+  },
+  {
+    "title": "texthex",
+    "image": "/contents/works/texthex.png",
+    "link": "https://github.com/trimscash/texthex",
+    "tags": [
+      "Rust",
+      "CLI"
+    ]
   },
   {
     "title": "KosenWordle",
     "image": "/contents/works/KosenWordle.png",
     "link": "https://trimscash.github.io/KosenWordle",
-    "tags": ["aa","aa"]
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
   },
   {
     "title": "DagashiGacha",
     "image": "/contents/works/DagashiGacha.png",
     "link": "https://trimscash.github.io/DagashiGacha",
-    "tags": []
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
   },
   {
     "title": "PictogramMaker",
     "image": "/contents/works/PictogramMaker.png",
     "link": "https://trimscash.github.io",
-    "tags": []
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
   },
   {
     "title": "unko64",
     "image": "/contents/works/unko64.png",
     "link": "https://trimscash.github.io/unko64",
-    "tags": []
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
   },
   {
     "title": "etoemoji",
     "image": "/contents/works/etoemoji.png",
     "link": "https://trimscash.github.io/etoemoji",
-    "tags": []
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
   },
   {
     "title": "bunaiCTF",
     "image": "/contents/works/bunaiCTF_Colorbar2.png",
     "link": "https://qiita.com/trimscash/items/e06ede13193fa8d48c02",
-    "tags": []
+    "tags": [
+      "Local CTF"
+    ]
   }
 ]
