@@ -2,7 +2,7 @@
 import socials from "../content/socials.json";
 
 const linkClass =
-  "inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#1f1f1f] bg-[#0d0d0d] transition hover:-translate-y-0.5 hover:border-[#2a2a2a]";
+  "inline-flex h-12 w-12 items-center justify-center rounded-full border border-[#1f1f1f] bg-[#0d0d0d] transition hover:-translate-y-0.5 hover:border-[#2a2a2a]";
 ---
 
 <div class="flex flex-row flex-wrap items-center justify-center gap-4">
@@ -15,7 +15,7 @@ const linkClass =
         rel="noreferrer"
         aria-label={social.label}
       >
-        <img class={social.sizeClass} src={social.icon} alt="" />
+        <img class="h-6 w-6" src={social.icon} alt="" />
       </a>
     ))
   }

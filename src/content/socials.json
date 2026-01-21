@@ -2,25 +2,21 @@
   {
     "label": "X",
     "href": "https://x.com/trimscasher",
-    "icon": "/x.svg",
-    "sizeClass": "h-5 w-5"
+    "icon": "/x.svg"
   },
   {
     "label": "GitHub",
     "href": "https://github.com/trimscash",
-    "icon": "/github.svg",
-    "sizeClass": "h-5 w-5"
+    "icon": "/github.svg"
   },
   {
     "label": "Qiita",
     "href": "https://qiita.com/trimscash",
-    "icon": "/qiita.png",
-    "sizeClass": "h-5 w-5"
+    "icon": "/qiita.png"
   },
   {
     "label": "Hatena Blog",
     "href": "https://trimscash.hatenablog.com/",
-    "icon": "/external.svg",
-    "sizeClass": "h-5 w-5"
+    "icon": "/external.svg"
   }
 ]
