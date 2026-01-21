@@ -1,0 +1,148 @@
+---
+import "../styles/global.css";
+import About from "../content/about.md";
+import emoteRaw from "../content/emote.md?raw";
+import works from "../content/works.json";
+
+const placeholderImage = "/work_no_img.jpg";
+
+const emotes = emoteRaw
+  .split(/\r?\n/)
+  .map((line) => line.trim())
+  .filter(Boolean);
+const emote = emotes.length
+  ? emotes[Math.floor(Math.random() * emotes.length)]
+  : "私がJK(元情報工学科高専生)のtrimscashです．";
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/Avatror.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>trimscash</title>
+  </head>
+  <body
+    class="bg-[radial-gradient(circle_at_20%_10%,#161616_0%,#070707_45%)] font-sans text-[#f2f2f2]"
+  >
+    <header
+      class="sticky top-0 z-10 border-b border-[#1f1f1f] bg-[#070707]/90 backdrop-blur"
+    >
+      <div
+        class="mx-auto flex w-[min(1100px,92vw)] items-center justify-between py-[18px] text-[18px] font-semibold max-[640px]:text-[16px]"
+      >
+        <div lang="en">trimscash</div>
+        <nav
+          class="flex gap-6 text-[18px] uppercase max-[640px]:gap-4 max-[640px]:text-[13px]"
+        >
+          <a class="no-underline hover:text-[#e6ff66]" href="#home" lang="en"
+            >Home</a
+          >
+          <a class="no-underline hover:text-[#e6ff66]" href="#works" lang="en"
+            >Works</a
+          >
+          <a
+            class="no-underline hover:text-[#e6ff66]"
+            href="https://github.com/trimscash"
+            lang="en">GitHub</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto w-[min(1100px,92vw)] pt-24 pb-32">
+      <section
+        id="home"
+        class="grid place-items-center gap-6 py-10 pb-[30px] text-center"
+      >
+        <img
+          class="h-[140px] w-[140px] rounded-full border-2 border-[#232323] bg-[#111] object-cover shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
+          src="/Avatror.png"
+          alt="trimscash icon"
+        />
+        <h1 class="m-0 text-[clamp(28px,4vw,44px)]" lang="en">trimscash</h1>
+        <p class="m-0 leading-[1.8] text-[#a7a7a7]">{emote}</p>
+        <div class="flex flex-row flex-wrap items-center justify-center gap-4">
+          <a
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#1f1f1f] bg-[#0d0d0d] transition hover:-translate-y-0.5 hover:border-[#2a2a2a]"
+            href="https://x.com/trimscasher"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="X"
+          >
+            <img class="h-5 w-5" src="/x.svg" alt="" />
+          </a>
+          <a
+            class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#1f1f1f] bg-[#0d0d0d] transition hover:-translate-y-0.5 hover:border-[#2a2a2a]"
+            href="https://github.com/trimscash"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="GitHub"
+          >
+            <img class="h-5 w-5" src="/github.svg" alt="" />
+          </a>
+        </div>
+      </section>
+
+      <section
+        class="mx-auto mb-[72px] grid w-full max-w-[600px] gap-3 rounded-2xl border border-[#1c1c1c] bg-[#0f0f0f] p-7 max-[640px]:p-5"
+      >
+        <h2 class="m-0 text-[25px] uppercase" lang="en">About</h2>
+        <div
+          class="text-[#a7a7a7] leading-[1.8] [&>p]:m-0 [&>ul]:m-0 [&>ul]:pl-[18px] [&>ul]:list-disc [&>ul]:list-inside"
+        >
+          <About />
+        </div>
+      </section>
+
+      <section id="works">
+        <h2 class="mb-5 text-[25px] uppercase" lang="en">Works</h2>
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5">
+          {
+            works.map((work) => (
+              <a
+                class="relative grid gap-3 overflow-hidden rounded-2xl border border-[#1c1c1c] bg-[#0f0f0f] p-3 transition hover:-translate-y-1.5 hover:border-[#2a2a2a]"
+                href={work.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span
+                  class="absolute bottom-2.5 right-2.5 grid h-[18px] w-[18px] place-items-center rounded-md border border-[#1f1f1f] bg-[#070707]/70"
+                  aria-hidden="true"
+                >
+                  <img class="h-3 w-3" src="/external.svg" alt="" />
+                </span>
+                <img
+                  class="aspect-[4/3] w-full rounded-xl bg-[#111] object-cover"
+                  src={work.image || placeholderImage}
+                  alt={work.title}
+                  onerror={`this.onerror=null;this.src='${placeholderImage}';`}
+                />
+                <h3 class="m-0 text-[16px]">{work.title}</h3>
+                <ul
+                  class="m-0 flex min-h-[22px] flex-wrap gap-1.5 p-0"
+                  aria-hidden={!work.tags?.length}
+                >
+                  {work.tags?.map((tag) => (
+                    <li class="list-none rounded-full border border-[#202020] bg-[#121212] px-2 py-1 text-[11px] text-[#a7a7a7]">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </a>
+            ))
+          }
+        </div>
+      </section>
+
+      <div class="mt-20 text-center text-[13px] text-[#a7a7a7]" lang="en">
+        More on GitHub:
+        <a
+          class="ml-1 no-underline hover:text-[#e6ff66]"
+          href="https://github.com/trimscash">https://github.com/trimscash</a
+        >
+      </div>
+    </main>
+  </body>
+</html>
