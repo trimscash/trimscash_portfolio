@@ -12,9 +12,7 @@ const emotes = emoteRaw
   .split(/\r?\n/)
   .map((line) => line.trim())
   .filter(Boolean);
-const emote = emotes.length
-  ? emotes[Math.floor(Math.random() * emotes.length)]
-  : "私がJK(元情報工学科高専生)のtrimscashです．";
+const fallbackEmote = "私がJK(元情報工学科高専生)のtrimscashです．";
 ---
 
 <html lang="ja">
@@ -70,7 +68,13 @@ const emote = emotes.length
           alt="trimscash icon"
         />
         <h1 class="m-0 text-[clamp(28px,4vw,44px)]">trimscash</h1>
-        <p class="m-0 leading-[1.8] text-[#a7a7a7]">{emote}</p>
+        <p
+          id="emote"
+          class="m-0 leading-[1.8] text-[#a7a7a7]"
+          data-emotes={JSON.stringify(emotes)}
+        >
+          {fallbackEmote}
+        </p>
         <Socials />
       </section>
 
@@ -99,4 +103,16 @@ const emote = emotes.length
       </div>
     </main>
   </body>
+  <script>
+    const emoteEl = document.getElementById("emote");
+    if (emoteEl) {
+      try {
+        const list = JSON.parse(emoteEl.dataset.emotes || "[]");
+        if (list.length) {
+          const pick = list[Math.floor(Math.random() * list.length)];
+          emoteEl.textContent = pick;
+        }
+      } catch {}
+    }
+  </script>
 </html>
