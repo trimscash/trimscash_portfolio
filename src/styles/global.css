@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --accent: #66baff;
+}
+
 body {
   font-family: "Cascadia Mono", "Noto Sans JP", "Yu Gothic", sans-serif;
 }
