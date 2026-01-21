@@ -1,5 +1,14 @@
 [
   {
+    "title": "重機の遠隔操縦の操作性向上に向けたハプティクスデバイスの導入と検証",
+    "image": "/contents/works/IPSJ87.png",
+    "link": "https://www.ipsj.or.jp/event/taikai/87/WEB/data/pdf/5ZB-09.html",
+    "tags": [
+      "卒研",
+      "学会発表"
+    ]
+  },
+  {
     "title": "BookController",
     "image": "/contents/works/BookController.png",
     "link": "https://github.com/trimscash/BookController",
