@@ -3,6 +3,8 @@ trimscashです．
 - Twitterがすき
 - 散歩が好き
 - Do It Yourself!!をみろ！
+- procon33
+- seccamp24
 - 基本的になにもやってない
 - 書くことがないです
 
