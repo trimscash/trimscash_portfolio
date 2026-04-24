@@ -114,7 +114,7 @@ function draw(now: number) {
   ctx.clearRect(0, 0, W, H);
 
   // 流れ星は先頭5粒、雨は常に100粒
-  const starCount = Math.round(starRatio * 5);
+  const starCount = Math.round(starRatio * 7);
   const visibleStar = Math.min(starCount, drops.length);
   const visibleRain = Math.min(visibleStar + 100, drops.length);
 
@@ -201,8 +201,8 @@ function draw(now: number) {
       const nd = spawn(false);
       if (phase > 1.2) {
         // 流れ星：左上付近からスポーン
-        nd.x = -30 + Math.random() * W * 0.3;
-        nd.y = -30 + Math.random() * H * 0.4;
+        nd.x = -30 + Math.random() * W * 0.6;
+        nd.y = -30 + Math.random() * H * 0.7;
         nd.vx = baseDx * (nd.speed * 3);
         nd.vy = baseDy * (nd.speed * 3);
       } else {
