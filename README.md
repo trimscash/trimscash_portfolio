@@ -1,6 +1,6 @@
 # trimscash portfolio
 
-trimscash のポートフォリオサイト。[trims.cash](https://trims.cash) で公開中。
+trimscash のポートフォリオサイト。[trims.cash](https://trims.cash)
 
 ## 技術スタック
 
