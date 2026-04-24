@@ -37,49 +37,36 @@ const fallbackEmote = "私がJK(元情報工学科高専生)のtrimscashです�
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:image" content="https://trims.cash/Avator.png" />
   </head>
-  <body
-    class="bg-[radial-gradient(circle_at_20%_10%,#161616_0%,#070707_45%)] text-[#f2f2f2]"
-  >
+  <body class="bg-[radial-gradient(circle_at_20%_10%,#161616_0%,#070707_45%)] text-[#f2f2f2]">
+    <canvas
+      id="rain"
+      style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;"></canvas>
     <header
-      class="sticky top-0 z-10 border-b border-[#1f1f1f] bg-[#070707]/90 backdrop-blur"
+      class="sticky top-0 z-10 border-b border-[#1f1f1f] bg-[#070707]/90 backdrop-blur relative"
     >
       <div
         class="mx-auto flex w-[min(1100px,92vw)] items-center justify-between py-[18px] text-[18px] max-[640px]:text-[16px]"
       >
         <div>trimscash</div>
-        <nav
-          class="flex gap-6 text-[18px] uppercase max-[640px]:gap-4 max-[640px]:text-[13px]"
-        >
-          <a class="no-underline hover:text-[var(--accent)]" href="#home"
-            >Home</a
-          >
-          <a class="no-underline hover:text-[var(--accent)]" href="#works"
-            >Works</a
-          >
-          <a
-            class="no-underline hover:text-[var(--accent)]"
-            href="https://github.com/trimscash">GitHub</a
+        <nav class="flex gap-6 text-[18px] uppercase max-[640px]:gap-4 max-[640px]:text-[13px]">
+          <a class="no-underline hover:text-[var(--accent)]" href="#home">Home</a>
+          <a class="no-underline hover:text-[var(--accent)]" href="#works">Works</a>
+          <a class="no-underline hover:text-[var(--accent)]" href="https://github.com/trimscash"
+            >GitHub</a
           >
         </nav>
       </div>
     </header>
 
-    <main class="mx-auto w-[min(1100px,92vw)] pt-24 pb-32">
-      <section
-        id="home"
-        class="grid place-items-center gap-6 py-10 pb-[30px] text-center"
-      >
+    <main class="relative z-[1] mx-auto w-[min(1100px,92vw)] pt-24 pb-32">
+      <section id="home" class="grid place-items-center gap-6 py-10 pb-[30px] text-center">
         <img
           class="h-[140px] w-[140px] rounded-full border-2 border-[#232323] bg-[#111] object-cover shadow-[0_10px_30px_rgba(0,0,0,0.6)]"
           src="/Avator.png"
           alt="trimscash icon"
         />
         <h1 class="m-0 text-[clamp(28px,4vw,44px)]">trimscash</h1>
-        <p
-          id="emote"
-          class="m-0 leading-[1.8] text-[#a7a7a7]"
-          data-emotes={JSON.stringify(emotes)}
-        >
+        <p id="emote" class="m-0 leading-[1.8] text-[#a7a7a7]" data-emotes={JSON.stringify(emotes)}>
           {fallbackEmote}
         </p>
         <Socials />
@@ -103,23 +90,12 @@ const fallbackEmote = "私がJK(元情報工学科高専生)のtrimscashです�
 
       <div class="mt-20 text-center text-[13px] text-[#a7a7a7]">
         More on GitHub:
-        <a
-          class="ml-1 no-underline hover:text-[var(--accent)]"
-          href="https://github.com/trimscash">https://github.com/trimscash</a
+        <a class="ml-1 no-underline hover:text-[var(--accent)]" href="https://github.com/trimscash"
+          >https://github.com/trimscash</a
         >
       </div>
     </main>
   </body>
-  <script>
-    const emoteEl = document.getElementById("emote");
-    if (emoteEl) {
-      try {
-        const list = JSON.parse(emoteEl.dataset.emotes || "[]");
-        if (list.length) {
-          const pick = list[Math.floor(Math.random() * list.length)];
-          emoteEl.textContent = pick;
-        }
-      } catch {}
-    }
-  </script>
+  <script src="../scripts/rain.ts"></script>
+  <script src="../scripts/emote.ts"></script>
 </html>
