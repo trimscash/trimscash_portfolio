@@ -1,12 +1,19 @@
 ---
+import type { Work } from "../types";
+
+interface Props {
+  works: Work[];
+  placeholderImage: string;
+}
+
 const { works, placeholderImage } = Astro.props;
 ---
 
 <div class="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] gap-5">
   {
-    works.map((work: any) => (
+    works.map((work) => (
       <a
-        class="relative grid gap-3 overflow-hidden rounded-2xl border border-[#1c1c1c] bg-[#0f0f0f] p-3 transition hover:-translate-y-1.5 hover:border-[#2a2a2a]"
+        class="work-card relative grid gap-3 rounded-2xl border border-[#1c1c1c] bg-[#0f0f0f] p-3 hover:border-[#2a2a2a]"
         href={work.link}
         target="_blank"
         rel="noreferrer"
@@ -18,17 +25,17 @@ const { works, placeholderImage } = Astro.props;
           <img class="h-3 w-3" src="/external.svg" alt="" />
         </span>
         <img
-          class="aspect-[4/3] w-full rounded-xl bg-[#111] object-cover"
+          class="work-img aspect-[4/3] w-full rounded-xl bg-[#111] object-cover"
           src={work.image || placeholderImage}
           alt={work.title}
-          onerror={`this.onerror=null;this.src='${placeholderImage}';`}
+          data-fallback={placeholderImage}
         />
         <h3 class="m-0 text-[16px]">{work.title}</h3>
         <ul
-          class="m-0 flex  flex-wrap gap-1.5 p-0"
+          class="m-0 flex flex-wrap gap-1.5 p-0"
           aria-hidden={!work.tags?.length}
         >
-          {work.tags?.map((tag: string) => (
+          {work.tags?.map((tag) => (
             <li class="list-none max-h-[22px] rounded-full border border-[#202020] bg-[#121212] px-2 py-1 text-[11px] leading-none text-[#a7a7a7]">
               {tag}
             </li>
@@ -38,3 +45,30 @@ const { works, placeholderImage } = Astro.props;
     ))
   }
 </div>
+
+<style>
+  .work-card {
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .work-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* ホバー領域をカード下側に拡張して、浮いたときにカーソルが外れないようにする */
+    bottom: -6px;
+  }
+  .work-card:hover {
+    transform: translateY(-6px);
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLImageElement>("img.work-img").forEach((img) => {
+    img.addEventListener("error", () => {
+      const fallback = img.dataset.fallback;
+      if (fallback && img.src !== fallback) {
+        img.src = fallback;
+      }
+    });
+  });
+</script>

@@ -1,10 +1,13 @@
 ---
 import "../styles/global.css";
-import About from "../content/about.md";
+import About from "../contents/about.md";
 import Socials from "../components/Socials.astro";
 import WorksGrid from "../components/WorksGrid.astro";
-import emoteRaw from "../content/emote.md?raw";
-import works from "../content/works.json";
+import emoteRaw from "../contents/emote.md?raw";
+import type { Work } from "../types";
+import worksData from "../contents/works.json";
+
+const works: Work[] = worksData;
 
 const placeholderImage = "/work_no_img.jpg";
 

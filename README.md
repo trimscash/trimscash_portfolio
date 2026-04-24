@@ -1,43 +1,35 @@
-# Astro Starter Kit: Minimal
+# trimscash portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+trimscash のポートフォリオサイト。[trims.cash](https://trims.cash) で公開中。
+
+## 技術スタック
+
+- [Astro](https://astro.build/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- GitHub Pages (自動デプロイ)
+
+## プロジェクト構成
+
 ```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
-├── public/
+├── public/               # 静的ファイル（画像、SVGアイコンなど）
+│   └── contents/works/  # 作品画像
 ├── src/
-│   └── pages/
-│       └── index.astro
+│   ├── components/       # Astroコンポーネント
+│   ├── contents/         # コンテンツ（Markdown/JSON）
+│   ├── pages/            # ページ（index.astro, 404.astro）
+│   ├── styles/           # グローバルCSS
+│   └── types.ts          # TypeScript型定義
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## コマンド
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| コマンド          | 説明                                      |
+| :---------------- | :---------------------------------------- |
+| `npm install`     | 依存パッケージのインストール              |
+| `npm run dev`     | ローカル開発サーバー起動 (localhost:4321) |
+| `npm run build`   | 本番ビルド (`./dist/`)                    |
+| `npm run preview` | ビルド結果のプレビュー                    |
+| `npm run lint`    | ESLintによる静的解析                      |
+| `npm run format`  | Prettierによるコード整形                  |
