@@ -40,6 +40,8 @@ let drops: Drop[] = [];
 let W = 0,
   H = 0;
 const startTime = performance.now();
+let animEnabled = true;
+let animFrameId: number | null = null;
 
 function resize() {
   W = canvas.width = window.innerWidth;
@@ -221,9 +223,42 @@ function draw(now: number) {
     }
   }
 
-  requestAnimationFrame(draw);
+  if (animEnabled) {
+    animFrameId = requestAnimationFrame(draw);
+  }
 }
+
+function stopAnimation() {
+  if (animFrameId !== null) {
+    cancelAnimationFrame(animFrameId);
+    animFrameId = null;
+  }
+  ctx.clearRect(0, 0, W, H);
+}
+
+function startAnimation() {
+  if (animFrameId === null) {
+    animFrameId = requestAnimationFrame(draw);
+  }
+}
+
+const toggleBtn = document.getElementById("rain-toggle");
+const iconOn = document.getElementById("rain-icon-on");
+const iconOff = document.getElementById("rain-icon-off");
+
+toggleBtn?.addEventListener("click", () => {
+  animEnabled = !animEnabled;
+  if (animEnabled) {
+    if (iconOn) iconOn.style.display = "";
+    if (iconOff) iconOff.style.display = "none";
+    startAnimation();
+  } else {
+    if (iconOn) iconOn.style.display = "none";
+    if (iconOff) iconOff.style.display = "";
+    stopAnimation();
+  }
+});
 
 window.addEventListener("resize", resize);
 init();
-requestAnimationFrame(draw);
+animFrameId = requestAnimationFrame(draw);
